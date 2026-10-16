@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070b14">
+<meta name="description" content="Watch the Abu Dhabi Grand Prix 2026 from your own private yacht at Yas Marina. Eight yachts for 20 to 120 guests.">
+<meta property="og:title" content="F1 Yacht Collection · Abu Dhabi Grand Prix 2026">
+<meta property="og:description" content="Watch the race from your own private yacht, berthed trackside at Yas Marina.">
+<meta property="og:image" content="photos/share.jpg">
+<meta property="og:type" content="website">
+<link rel="preload" as="image" href="photos/cover.webp" fetchpriority="high">
+<title>F1 Yacht Collection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500;700;800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: night-race marina. Full-bleed hero, then a grid of yachts, timing-tower numerals. Single dark look by choice. */
+:root{
+  color-scheme: dark;
+  --night:#070b14;
+  --deck:#0f1626;
+  --deck2:#162036;
+  --line:#223049;
+  --ink:#eef2f8;
+  --mist:#93a1b8;
+  --flood:#f3b54a;
+  --floodInk:#160e00;
+  --wa:#25d366;
+  --waInk:#04260f;
+  --danger:#ff6b5e;
+  --display:"Saira Extra Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+body{background:var(--night);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--flood);outline-offset:3px}
+.cheq{height:12px;background:conic-gradient(var(--ink) 25%,transparent 0 50%,var(--ink) 0 75%,transparent 0) 0 0/12px 12px;opacity:.9}
+
+/* top bar */
+.top{position:absolute;inset:0 0 auto;z-index:5;padding-top:env(safe-area-inset-top,0px)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px}
+.brand{font:700 15px/1 var(--display);letter-spacing:.32em;text-transform:uppercase}
+.brand b{color:var(--flood);font-weight:800}
+.top nav{display:flex;gap:22px;align-items:center;font:600 13px/1 var(--body);letter-spacing:.08em;text-transform:uppercase}
+.top nav a{text-decoration:none;opacity:.9}
+.top nav a:hover{opacity:1;color:var(--flood)}
+.top nav a.wa-mini{display:inline-flex;align-items:center;gap:8px;background:var(--wa);color:var(--waInk);padding:10px 14px;opacity:1}
+
+/* hero */
+.hero{position:relative;min-height:min(88vh,860px);min-height:min(88svh,860px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;background:var(--deck)}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.04);animation:drift 18s ease-out forwards;will-change:transform}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,11,20,.6) 0%,rgba(7,11,20,0) 26%,rgba(7,11,20,.35) 50%,var(--night) 100%)}
+@keyframes drift{to{transform:scale(1)}}
+.hero .wrap{width:100%;padding-block:140px 56px}
+.badge{display:inline-flex;align-items:center;gap:10px;background:var(--flood);color:var(--floodInk);font:700 clamp(13px,1.6vw,16px)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:12px 16px;box-shadow:0 8px 30px rgba(0,0,0,.45)}
+.badge::before{content:"";width:14px;height:14px;background:conic-gradient(var(--floodInk) 25%,transparent 0 50%,var(--floodInk) 0 75%,transparent 0) 0 0/7px 7px;flex:none}
+.hero h1{font:800 clamp(56px,11vw,168px)/.86 var(--display);text-transform:uppercase;letter-spacing:-.01em;margin:22px 0 0;text-wrap:balance;text-shadow:0 4px 40px rgba(0,0,0,.4)}
+.hero h1 span{display:block}
+.hero h1 .outline{color:transparent;-webkit-text-stroke:2px var(--ink)}
+.hero .sub{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:28px}
+.hero p{max-width:46ch;margin:0;color:var(--ink);opacity:.88;font-size:18px}
+.cta{display:inline-flex;align-items:center;gap:12px;background:var(--flood);color:var(--floodInk);text-decoration:none;font:700 15px/1 var(--display);letter-spacing:.18em;text-transform:uppercase;padding:18px 26px;border:0;cursor:pointer}
+.cta:hover{background:var(--ink)}
+.cta.wa{background:var(--wa);color:var(--waInk)}
+.cta.wa:hover{background:var(--ink);color:var(--night)}
+.cta svg{width:20px;height:20px;flex:none}
+.eyebrow{font:600 12px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--flood);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--flood)}
+
+/* facts */
+.facts{border-block:1px solid var(--line);background:var(--deck)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr);margin:0 auto}
+.fact{padding:22px 20px;border-left:1px solid var(--line)}
+.fact:first-child{border-left:0;padding-left:0}
+.fact dt{font:500 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--mist)}
+.fact dd{margin:10px 0 0;font:700 28px/1 var(--display);letter-spacing:.04em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.fact dd small{font:500 13px var(--body);letter-spacing:0;text-transform:none;color:var(--mist);margin-left:6px}
+
+/* fleet */
+.fleet{padding-block:88px 40px}
+.head{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;margin-bottom:36px}
+.head h2{font:800 clamp(40px,6vw,76px)/.9 var(--display);text-transform:uppercase;margin:12px 0 0;text-wrap:balance}
+.head p{color:var(--mist);margin:12px 0 0;max-width:56ch}
+.filters{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:flex-end;padding:20px 0;border-block:1px solid var(--line)}
+.fgroup{display:flex;flex-direction:column;gap:10px;min-width:0}
+.fgroup > span{font:600 11px/1 var(--mono);letter-spacing:.18em;color:var(--mist);text-transform:uppercase}
+.seg{display:flex;flex-wrap:wrap;border:1px solid var(--line)}
+.seg button{font:600 14px/1 var(--body);padding:12px 16px;background:transparent;color:var(--ink);border:0;border-left:1px solid var(--line);cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.seg button:first-child{border-left:0}
+.seg button small{font:500 11px/1 var(--mono);color:var(--mist)}
+.seg button:hover{background:var(--deck2)}
+.seg button[aria-pressed="true"]{background:var(--flood);color:var(--floodInk)}
+.seg button[aria-pressed="true"] small{color:var(--floodInk);opacity:.7}
+.seg button:disabled{opacity:.35;cursor:default;background:transparent}
+.count{flex-basis:100%;font:600 13px/1.4 var(--mono);color:var(--ink);letter-spacing:.04em}
+/* the value being sorted on lights up on every card */
+.grid[data-key="len"] .len,.grid[data-key="price"] .price strong,.grid[data-key="guests"] .cap{color:var(--floodInk);background:var(--flood);padding:6px 8px}
+.grid[data-key="price"] .price strong small{color:var(--floodInk)}
+.meta .len,.price strong{transition:background .2s}
+
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 22px}
+.yacht{position:relative;display:flex;flex-direction:column;min-width:0}
+.ph{position:relative;aspect-ratio:16/10;overflow:hidden;max-width:100%;background:var(--deck)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+@media (hover:hover){.yacht:hover .ph img{transform:scale(1.05)}}
+.pos{position:absolute;left:0;top:0;background:var(--night);color:var(--flood);font:600 13px/1 var(--mono);padding:9px 11px;letter-spacing:.06em}
+.cap{position:absolute;right:10px;bottom:10px;background:rgba(7,11,20,.8);font:600 12px/1 var(--mono);padding:8px 10px;letter-spacing:.04em}
+.nph{position:absolute;left:10px;bottom:10px;background:rgba(7,11,20,.8);font:600 12px/1 var(--mono);padding:8px 10px}
+.meta{padding-block:16px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:baseline}
+.meta h3{font:700 32px/1 var(--display);text-transform:uppercase;letter-spacing:.02em;margin:0;overflow-wrap:anywhere}
+.open{all:unset;cursor:pointer}
+.open::after{content:"";position:absolute;inset:0}
+.open:focus-visible::after{outline:2px solid var(--flood);outline-offset:4px}
+.meta .len{font:600 22px/1 var(--display);color:var(--flood);font-variant-numeric:tabular-nums}
+.meta .spec{grid-column:1/-1;color:var(--mist);font-size:14px}
+.price{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-top:14px;flex-wrap:wrap}
+.price strong{font:600 19px/1 var(--mono);font-variant-numeric:tabular-nums}
+.price strong small{font-size:12px;color:var(--mist);margin-right:6px;font-weight:400}
+.price span{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mist)}
+.empty{grid-column:1/-1;color:var(--mist);padding:40px 0}
+.addcard{border:2px dashed var(--line);background:none;color:var(--mist);min-height:260px;cursor:pointer;font:700 22px/1 var(--display);letter-spacing:.1em;text-transform:uppercase}
+.addcard:hover{border-color:var(--flood);color:var(--flood)}
+
+/* terms */
+.terms{padding-block:56px 96px}
+.terms .box{display:grid;grid-template-columns:1.1fr 2fr;gap:40px;border-top:2px solid var(--flood);padding-top:32px}
+.terms h2{font:800 44px/.95 var(--display);text-transform:uppercase;margin:0}
+.terms dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin:0}
+.terms dt{font:700 22px/1 var(--display);text-transform:uppercase;letter-spacing:.04em}
+.terms dd{margin:10px 0 0;color:var(--mist);font-size:15px}
+.contact{display:flex;flex-wrap:wrap;gap:20px 32px;align-items:center;justify-content:space-between;margin-top:56px;padding:28px;background:var(--deck)}
+.contact h3{font:800 34px/1 var(--display);text-transform:uppercase;margin:0}
+.contact p{margin:6px 0 0;color:var(--mist)}
+.num{font:600 15px/1 var(--mono);user-select:all}
+footer{border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-block:24px;color:var(--mist);font:500 12px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+
+/* detail sheet */
+.sheet{position:fixed;inset:0;z-index:30;display:grid;place-items:center;background:rgba(3,6,12,.86);padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.sheet .card{width:min(1180px,100%);max-height:100%;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;animation:rise .28s cubic-bezier(.2,.7,.2,1);background:var(--deck);display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr)}
+.gal{display:flex;flex-direction:column;min-width:0;background:var(--night)}
+.stage{position:relative;aspect-ratio:16/10;max-width:100%;overflow:hidden;background:#000}
+.stage img{width:100%;height:100%;object-fit:cover;transition:opacity .25s ease}
+.stage img.swap{opacity:.25}
+.stage{touch-action:pan-y}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border:0;background:rgba(7,11,20,.75);color:var(--ink);font-size:22px;cursor:pointer;display:grid;place-items:center}
+.arrow:hover{background:var(--flood);color:var(--floodInk)}
+.arrow.prev{left:12px}.arrow.next{right:12px}
+.counter{position:absolute;right:12px;bottom:12px;background:rgba(7,11,20,.8);font:600 12px/1 var(--mono);padding:8px 10px}
+.thumbs{display:flex;gap:8px;padding:10px;overflow-x:auto;scroll-snap-type:x proximity;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.thumbs > *{scroll-snap-align:start}
+.thumb{position:relative;flex:none;width:96px;aspect-ratio:16/10;border:2px solid transparent;padding:0;background:var(--deck);cursor:pointer;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb[aria-current="true"]{border-color:var(--flood)}
+.thumbwrap{display:flex;flex-direction:column;gap:4px;flex:none}
+.thumbtools{display:flex;gap:4px}
+.thumbtools button{flex:1;font:600 10px/1 var(--mono);padding:6px 0;background:var(--deck2);border:0;cursor:pointer;color:var(--ink)}
+.thumbtools button:hover{background:var(--flood);color:var(--floodInk)}
+.thumbtools button.del:hover{background:var(--danger);color:var(--night)}
+.addph{flex:none;width:96px;aspect-ratio:16/10;border:2px dashed var(--line);display:grid;place-items:center;font:600 11px/1.2 var(--mono);color:var(--mist);cursor:pointer;text-align:center;padding:4px}
+.addph:hover{border-color:var(--flood);color:var(--flood)}
+.addph input{display:none}
+.info{padding:28px 30px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.info .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.sheet h3{font:800 54px/.9 var(--display);text-transform:uppercase;margin:0;overflow-wrap:anywhere}
+.sheet table{width:100%;border-collapse:collapse;font-size:15px}
+.sheet td{padding:10px 0;border-bottom:1px solid var(--line)}
+.sheet td:last-child{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.sheet tr.total td{border-bottom:0;font-weight:600;color:var(--flood)}
+.note{font-size:13px;color:var(--mist);margin:0}
+.close{background:none;border:1px solid var(--line);color:var(--ink);font:600 12px/1 var(--mono);letter-spacing:.1em;padding:10px 12px;cursor:pointer;text-transform:uppercase}
+.close:hover{border-color:var(--ink)}
+.wa-block{display:flex;flex-direction:column;gap:8px}
+.wa-block .cta{justify-content:center}
+
+@media (max-width:960px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .terms .box{grid-template-columns:1fr}
+  .sheet .card{grid-template-columns:1fr}
+}
+/* fluidity */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html.lock,html.lock body{overflow:hidden}
+a,button,label{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.sheet{animation:fadein .2s ease}
+@keyframes fadein{from{opacity:0}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+.grid.refresh .yacht{animation:fadein .3s ease}
+.ph img,.thumb img{background:var(--deck)}
+.terms,footer{content-visibility:auto;contain-intrinsic-size:auto 600px}
+@media (max-width:640px){
+  .hero{min-height:min(78svh,720px)}
+  .hero .wrap{padding-block:110px 40px}
+  .hero h1{font-size:clamp(48px,15vw,84px)}
+  .hero .sub .cta{width:100%;justify-content:center}
+  .fleet{padding-block:56px 28px}
+  .filters{gap:16px}
+  .fgroup{width:100%}
+  .seg{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .seg::-webkit-scrollbar{display:none}
+  .seg button{flex:1 0 auto;justify-content:center;white-space:nowrap}
+  .grid{gap:28px}
+  .meta h3{font-size:28px}
+  .sheet{padding:0;place-items:stretch}
+  .sheet .card{width:100%;max-height:none;height:100%;animation:rise .3s cubic-bezier(.2,.7,.2,1)}
+  .sheet .card{display:flex;flex-direction:column}
+  .gal{order:2;flex:none}
+  .info{display:contents}
+  .sheet .info > *{order:3;margin:18px 18px 0}
+  .sheet .info > table{width:calc(100% - 36px)}
+  .sheet .info > :last-child{margin-bottom:calc(28px + env(safe-area-inset-bottom,0px))}
+  .sheet .info > .row{order:1;position:sticky;top:0;z-index:2;margin:0;background:var(--deck);padding:calc(12px + env(safe-area-inset-top,0px)) 18px 12px;border-bottom:1px solid var(--line)}
+  .arrow{width:42px;height:42px}
+  .contact{padding:22px 18px}
+  .contact .cta{width:100%;justify-content:center}
+  .terms{padding-block:40px 64px}
+
+  .top nav a:not(.wa-mini){display:none}
+  .facts .wrap{grid-template-columns:1fr 1fr}
+  .fact:nth-child(3){border-left:0;padding-left:0}
+  .fact:nth-child(n+3){border-top:1px solid var(--line)}
+  .grid{grid-template-columns:1fr}
+  .terms dl{grid-template-columns:1fr}
+  .hero p{font-size:16px}
+  .sheet h3{font-size:42px}
+  .info{padding:22px 18px}
+  .seg button{padding:11px 12px;font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">Yacht <b>/</b> Collection</div>
+    <nav>
+      <a href="#fleet">The fleet</a>
+      <a href="#terms">Charter terms</a>
+      <a class="wa-mini" id="wa-top" href="https://wa.me/971523989145" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <img class="bg" id="hero-img" src="photos/cover.webp" fetchpriority="high" decoding="async" alt="Superyachts berthed at Yas Marina at dusk, with the circuit's lit grandstands behind">
+  <div class="wrap">
+    <div class="badge">Abu Dhabi Grand Prix · December 2026</div>
+    <h1><span>Race weekend</span><span class="outline">from the deck</span></h1>
+    <div class="sub">
+      <p>Watch Formula 1 from your own private yacht, berthed trackside at Yas Marina. Eight yachts, from an intimate 20-guest cruiser to a 120-guest superyacht.</p>
+      <a class="cta" href="#fleet">View the fleet <span aria-hidden="true">↓</span></a>
+    </div>
+  </div>
+</section>
+<div class="cheq" aria-hidden="true"></div>
+
+<section class="facts"><dl class="wrap" id="facts"></dl></section>
+
+<main id="fleet" class="fleet">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eyebrow">The fleet</div>
+        <h2>Choose your yacht</h2>
+        <p>Every price includes the race-weekend berth. Tap a yacht to see all photos, the full cost breakdown and to enquire on WhatsApp.</p>
+      </div>
+      <div class="filters">
+        <div class="fgroup"><span>Guests</span><div class="seg" id="seg-guests" role="group" aria-label="Filter by guests"></div></div>
+        <div class="fgroup"><span>Sort by</span><div class="seg" id="seg-sort" role="group" aria-label="Sort yachts"></div></div>
+        <div class="count" id="count" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</main>
+
+<section id="terms" class="terms">
+  <div class="wrap">
+    <div class="box">
+      <h2>What the price covers</h2>
+      <dl>
+        <div><dt>Berth included</dt><dd>Each charter fee includes the yacht's berth at Yas Marina for the Grand Prix.</dd></div>
+        <div><dt>+ 5% VAT</dt><dd>UAE value added tax is charged on top of the charter fee.</dd></div>
+        <div><dt>35% APA</dt><dd>The Advance Provisioning Allowance covers fuel, food, drinks and running costs. Unused APA is reconciled after the charter.</dd></div>
+      </dl>
+    </div>
+    <div class="contact">
+      <div><h3>Reserve your berth</h3><p>Message us on WhatsApp: <span class="num" id="num-bottom">+971 52 398 9145</span></p></div>
+      <a class="cta wa" id="wa-bottom" href="https://wa.me/971523989145" target="_blank" rel="noopener"></a>
+    </div>
+  </div>
+</section>
+
+<div class="cheq" aria-hidden="true"></div>
+<footer><div class="wrap"><span>Abu Dhabi Grand Prix 2026 · Yacht Collection</span><span>Prices in AED · subject to availability</span></div></footer>
+
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sh-name">
+  <div class="card">
+    <div class="gal">
+      <div class="stage">
+        <img id="sh-img" alt="">
+        <button class="arrow prev" id="sh-prev" type="button" aria-label="Previous photo">‹</button>
+        <button class="arrow next" id="sh-next" type="button" aria-label="Next photo">›</button>
+        <span class="counter" id="sh-counter"></span>
+      </div>
+      <div class="thumbs" id="sh-thumbs"></div>
+    </div>
+    <div class="info" id="sh-info"></div>
+  </div>
+</div>
+
+
+<script>
+const WA_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>';
+const DATA={"hero": "photos/cover.webp", "eyebrow": "Abu Dhabi Grand Prix · December 2026", "h1a": "Race weekend", "h1b": "from the deck", "intro": "Watch Formula 1 from your own private yacht, berthed trackside at Yas Marina. Eight yachts, from an intimate 20-guest cruiser to a 120-guest superyacht.", "whatsapp": "+971 52 398 9145", "yachts": [{"name": "60M Benetti", "length": 56, "builder": "Benetti", "year": "2007", "guests": 70, "price": 2750000, "photos": ["photos/60m-benetti-01.webp", "photos/60m-benetti-02.webp", "photos/60m-benetti-03.webp", "photos/60m-benetti-04.webp", "photos/60m-benetti-05.webp", "photos/60m-benetti-06.webp", "photos/60m-benetti-07.webp", "photos/60m-benetti-08.webp", "photos/60m-benetti-09.webp", "photos/60m-benetti-10.webp", "photos/60m-benetti-11.webp", "photos/60m-benetti-12.webp", "photos/60m-benetti-13.webp", "photos/60m-benetti-14.webp"]}, {"name": "Thunder", "length": 49.9, "builder": "Oceanfast", "year": "", "guests": 120, "price": 1600000, "photos": ["photos/thunder-01.webp", "photos/thunder-02.webp", "photos/thunder-03.webp", "photos/thunder-04.webp", "photos/thunder-05.webp", "photos/thunder-06.webp", "photos/thunder-07.webp", "photos/thunder-08.webp", "photos/thunder-09.webp", "photos/thunder-10.webp", "photos/thunder-11.webp", "photos/thunder-12.webp"]}, {"name": "AK Royalty", "length": 41.4, "builder": "Palmer Johnson", "year": "2009 / refit 2023", "guests": 50, "price": 1400000, "photos": ["photos/ak-royalty-01.webp", "photos/ak-royalty-02.webp", "photos/ak-royalty-03.webp", "photos/ak-royalty-04.webp", "photos/ak-royalty-05.webp", "photos/ak-royalty-06.webp", "photos/ak-royalty-07.webp", "photos/ak-royalty-08.webp", "photos/ak-royalty-09.webp", "photos/ak-royalty-10.webp", "photos/ak-royalty-11.webp", "photos/ak-royalty-12.webp", "photos/ak-royalty-13.webp", "photos/ak-royalty-14.webp", "photos/ak-royalty-15.webp", "photos/ak-royalty-16.webp", "photos/ak-royalty-17.webp", "photos/ak-royalty-18.webp"]}, {"name": "Santorini", "length": 35, "builder": "Logos Marine", "year": "2010", "guests": 60, "price": 1750000, "photos": ["photos/santorini-01.webp", "photos/santorini-02.webp", "photos/santorini-03.webp", "photos/santorini-04.webp", "photos/santorini-05.webp", "photos/santorini-06.webp", "photos/santorini-07.webp", "photos/santorini-08.webp", "photos/santorini-09.webp", "photos/santorini-10.webp", "photos/santorini-11.webp", "photos/santorini-12.webp", "photos/santorini-13.webp"]}, {"name": "Gallus", "length": 35, "builder": "Benetti", "year": "", "guests": 100, "price": 1000000, "photos": ["photos/gallus-01.webp", "photos/gallus-02.webp", "photos/gallus-03.webp", "photos/gallus-04.webp", "photos/gallus-05.webp", "photos/gallus-06.webp", "photos/gallus-07.webp", "photos/gallus-08.webp", "photos/gallus-09.webp", "photos/gallus-10.webp", "photos/gallus-11.webp", "photos/gallus-12.webp", "photos/gallus-13.webp"]}, {"name": "Baia 100", "length": 31, "builder": "Baia Yachts", "year": "2010", "guests": 20, "price": 550000, "photos": ["photos/baia-100-01.webp", "photos/baia-100-02.webp", "photos/baia-100-03.webp", "photos/baia-100-04.webp", "photos/baia-100-05.webp", "photos/baia-100-06.webp", "photos/baia-100-07.webp", "photos/baia-100-08.webp", "photos/baia-100-09.webp", "photos/baia-100-10.webp"]}, {"name": "Sunseeker 90", "length": 28, "builder": "Sunseeker", "year": "2009 / refit 2023", "guests": 20, "price": 695000, "photos": ["photos/sunseeker-90-01.webp", "photos/sunseeker-90-02.webp", "photos/sunseeker-90-03.webp", "photos/sunseeker-90-04.webp", "photos/sunseeker-90-05.webp", "photos/sunseeker-90-06.webp", "photos/sunseeker-90-07.webp", "photos/sunseeker-90-08.webp", "photos/sunseeker-90-09.webp", "photos/sunseeker-90-10.webp", "photos/sunseeker-90-11.webp"]}, {"name": "Fat Boy", "length": 20, "builder": "Azimut Magellano 66", "year": "2022", "guests": 25, "price": 350000, "photos": ["photos/fat-boy-01.webp", "photos/fat-boy-02.webp", "photos/fat-boy-03.webp", "photos/fat-boy-04.webp", "photos/fat-boy-05.webp", "photos/fat-boy-06.webp", "photos/fat-boy-07.webp", "photos/fat-boy-08.webp", "photos/fat-boy-09.webp", "photos/fat-boy-10.webp", "photos/fat-boy-11.webp", "photos/fat-boy-12.webp", "photos/fat-boy-13.webp", "photos/fat-boy-14.webp", "photos/fat-boy-15.webp"]}]};
+
+const $=id=>document.getElementById(id);
+const IMG={card:p=>p,thumb:p=>p.replace("photos/","photos/thumb/")};
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt=v=>Math.round(+v||0).toLocaleString("en-US");
+const num=v=>{const n=parseFloat(String(v).replace(/[^\d.]/g,""));return isNaN(n)?0:n};
+const clone=o=>JSON.parse(JSON.stringify(o));
+
+let D=DATA, editing=false;
+let band="all", sort="len", openIdx=-1, photoIdx=0;
+
+const BANDS=[
+  {id:"all",label:"All",test:()=>true},
+  {id:"s",label:"Up to 30",test:g=>g<=30},
+  {id:"m",label:"31 – 80",test:g=>g>30&&g<=80},
+  {id:"l",label:"Over 80",test:g=>g>80}];
+const bySize=(a,b)=>b.y.length-a.y.length||b.y.guests-a.y.guests;
+const SORTS=[
+  {id:"len",key:"len",label:"Largest yacht",desc:"Sorted by length, largest yacht first",fn:bySize},
+  {id:"pa",key:"price",label:"Lowest price",desc:"Sorted by price, lowest first",fn:(a,b)=>a.y.price-b.y.price||bySize(a,b)},
+  {id:"pd",key:"price",label:"Highest price",desc:"Sorted by price, highest first",fn:(a,b)=>b.y.price-a.y.price||bySize(a,b)},
+  {id:"g",key:"guests",label:"Most guests",desc:"Sorted by guest capacity, most guests first",fn:(a,b)=>b.y.guests-a.y.guests||bySize(a,b)}];
+
+const waDigits=()=>String(D.whatsapp||"").replace(/\D/g,"");
+const waLink=y=>{
+  const msg=y?`Hello, I'm interested in ${y.name} (${y.length} m, ${y.guests} guests) for the Abu Dhabi Grand Prix 2026. Is it available?`
+             :`Hello, I'm interested in a yacht for the Abu Dhabi Grand Prix 2026.`;
+  return `https://wa.me/${waDigits()}?text=${encodeURIComponent(msg)}`;
+};
+
+/* ---------- render ---------- */
+function renderHero(){
+  $("hero-img").src=D.hero;
+  document.querySelectorAll("[data-edit]").forEach(el=>{ if(document.activeElement!==el) el.textContent=D[el.dataset.edit]||""; });
+  $("wa-top").href=waLink(); $("wa-bottom").href=waLink();
+  $("wa-bottom").innerHTML=WA_ICON+"Chat on WhatsApp";
+  $("num-bottom").textContent=D.whatsapp;
+}
+function renderFacts(){
+  const Y=D.yachts; if(!Y.length){$("facts").innerHTML="";return}
+  const L=Y.map(y=>+y.length),G=Y.map(y=>+y.guests),P=Y.map(y=>+y.price);
+  $("facts").innerHTML=`
+    <div class="fact"><dt>Venue</dt><dd>Yas Marina</dd></div>
+    <div class="fact"><dt>Yachts</dt><dd>${Y.length} <small>${Math.min(...L)} m to ${Math.max(...L)} m</small></dd></div>
+    <div class="fact"><dt>Guests</dt><dd>${Math.min(...G)}–${Math.max(...G)} <small>per yacht</small></dd></div>
+    <div class="fact"><dt>From</dt><dd>AED ${fmt(Math.min(...P))} <small>berth incl.</small></dd></div>`;
+}
+function renderControls(){
+  $("seg-guests").innerHTML=BANDS.map(b=>{
+    const n=D.yachts.filter(y=>b.test(+y.guests)).length;
+    return `<button type="button" data-band="${b.id}" aria-pressed="${band===b.id}" ${n||b.id==="all"?"":"disabled"}>${b.label} <small>${n}</small></button>`}).join("");
+  $("seg-sort").innerHTML=SORTS.map(s=>`<button type="button" data-sort="${s.id}" aria-pressed="${sort===s.id}">${s.label}</button>`).join("");
+}
+function renderGrid(){
+  const B=BANDS.find(b=>b.id===band), S=SORTS.find(s=>s.id===sort);
+  const list=D.yachts.map((y,i)=>({y,i})).filter(o=>B.test(+o.y.guests)).sort(S.fn);
+  $("count").textContent=`${list.length} yacht${list.length===1?"":"s"} · ${S.desc}`;
+  $("grid").dataset.key=S.key;
+  let h=list.map((o,k)=>{const y=o.y,ph=y.photos||[];return `
+   <article class="yacht">
+     <div class="ph">${ph[0]?`<img src="${esc(IMG.card(ph[0]))}" alt="${esc(y.name)}" loading="${k<3?"eager":"lazy"}" decoding="async">`:""}
+       <span class="pos">${String(k+1).padStart(2,"0")}</span><span class="cap">${esc(y.guests)} guests</span>
+       ${ph.length>1?`<span class="nph">${ph.length} photos</span>`:""}</div>
+     <div class="meta"><h3><button class="open" type="button" data-i="${o.i}">${esc(y.name)}</button></h3><span class="len">${esc(y.length)} m</span>
+       <span class="spec">${esc(y.builder)}${y.year?" · "+esc(y.year):""}</span></div>
+     <div class="price"><strong><small>AED</small>${fmt(y.price)}</strong><span>+5% VAT · 35% APA</span></div>
+   </article>`}).join("");
+  if(!list.length) h=`<p class="empty">No yacht matches this guest count.</p>`;
+  if(editing) h+=`<button class="addcard" type="button" id="addyacht">+ Ajouter un bateau</button>`;
+  const g=$("grid");g.classList.remove("refresh");g.innerHTML=h;void g.offsetWidth;g.classList.add("refresh");
+}
+function renderAll(){renderHero();renderFacts();renderControls();renderGrid();if(openIdx>=0)renderSheet()}
+
+$("seg-guests").addEventListener("click",e=>{const b=e.target.closest("[data-band]");if(!b||b.disabled)return;band=b.dataset.band;renderControls();renderGrid()});
+$("seg-sort").addEventListener("click",e=>{const b=e.target.closest("[data-sort]");if(!b)return;sort=b.dataset.sort;renderControls();renderGrid()});
+$("grid").addEventListener("click",e=>{
+  if(e.target.closest("#addyacht")){D.yachts.push({name:"New yacht",length:30,builder:"",year:"",guests:20,price:500000,photos:[]});renderAll();openSheet(D.yachts.length-1);return}
+  const b=e.target.closest(".open"); if(b) openSheet(+b.dataset.i);
+});
+
+/* ---------- detail sheet ---------- */
+let lastFocus=null;
+function openSheet(i){openIdx=i;photoIdx=0;lastFocus=document.activeElement;document.documentElement.classList.add("lock");$("sheet").hidden=false;$("sheet").querySelector(".card").scrollTop=0;renderSheet();$("sheet").querySelector(".close")?.focus()}
+function closeSheet(){$("sheet").hidden=true;document.documentElement.classList.remove("lock");openIdx=-1;lastFocus?.focus?.()}
+function showPhoto(){
+  const y=D.yachts[openIdx],ph=y.photos||[];
+  if(photoIdx>=ph.length)photoIdx=Math.max(0,ph.length-1);
+  const im=$("sh-img"),src=ph[photoIdx]||"";
+  if(src&&im.getAttribute("src")!==src){im.classList.add("swap");const pre=new Image();pre.onload=pre.onerror=()=>{im.src=src;im.classList.remove("swap")};pre.src=src}else if(!src)im.removeAttribute("src");
+  [1,-1].forEach(d=>{const n=ph[(photoIdx+d+ph.length)%ph.length];if(n)new Image().src=n});
+  const th=$("sh-thumbs").querySelectorAll(".thumb")[photoIdx];th?.scrollIntoView({block:"nearest",inline:"nearest",behavior:"smooth"});
+  $("sh-img").alt=ph.length?`${y.name}, photo ${photoIdx+1}`:"";
+  $("sh-img").hidden=!ph.length;
+  $("sh-counter").textContent=ph.length?`${photoIdx+1} / ${ph.length}`:"Aucune photo";
+  $("sh-prev").hidden=$("sh-next").hidden=ph.length<2;
+  $("sh-thumbs").querySelectorAll(".thumb").forEach((t,k)=>t.setAttribute("aria-current",k===photoIdx));
+}
+function renderThumbs(){
+  const y=D.yachts[openIdx],ph=y.photos||[];
+  let h=ph.map((p,k)=>{
+    const t=`<button class="thumb" type="button" data-k="${k}" aria-label="Photo ${k+1}"><img src="${esc(IMG.thumb(p))}" alt="" loading="lazy" decoding="async"></button>`;
+    return editing?`<div class="thumbwrap">${t}<div class="thumbtools">
+      <button type="button" data-left="${k}" title="Déplacer à gauche" aria-label="Déplacer à gauche">◀</button>
+      <button type="button" data-right="${k}" title="Déplacer à droite" aria-label="Déplacer à droite">▶</button>
+      <button type="button" class="del" data-del="${k}" title="Supprimer" aria-label="Supprimer la photo">✕</button></div></div>`:t}).join("");
+  if(editing) h+=`<label class="addph">+ Ajouter des photos<input type="file" id="ph-file" accept="image/*" multiple></label>`;
+  $("sh-thumbs").innerHTML=h;
+  $("sh-thumbs").hidden=!editing&&ph.length<2;
+}
+function renderSheet(){
+  const y=D.yachts[openIdx]; if(!y)return closeSheet();
+  renderThumbs();showPhoto();
+  if(editing){
+    $("sh-info").innerHTML=`
+      <div class="row"><div class="eyebrow">Modifier le bateau</div><button class="close" type="button">Fermer ✕</button></div>
+      <div class="form">
+        <label class="full">Nom<input id="f-name" data-f="name" value="${esc(y.name)}"></label>
+        <label>Longueur (m)<input id="f-length" data-f="length" data-n="1" inputmode="decimal" value="${esc(y.length)}"></label>
+        <label>Invités<input id="f-guests" data-f="guests" data-n="1" inputmode="numeric" value="${esc(y.guests)}"></label>
+        <label>Chantier / modèle<input id="f-builder" data-f="builder" value="${esc(y.builder)}"></label>
+        <label>Année<input id="f-year" data-f="year" value="${esc(y.year)}"></label>
+        <label class="full">Prix AED (place incluse, hors TVA)<input id="f-price" data-f="price" data-n="1" inputmode="numeric" value="${esc(y.price)}"></label>
+      </div>
+      <p class="note">La première photo est la photo principale du bateau. Format conseillé : 1920 × 1200 px (paysage 16:10), JPG.</p>
+      <div class="danger-row"><button class="btn red" type="button" id="del-yacht">Supprimer ce bateau</button></div>`;
+  }else{
+    const vat=y.price*.05,apa=y.price*.35;
+    $("sh-info").innerHTML=`
+      <div class="row"><div class="eyebrow">${esc(y.length)} m · ${esc(y.builder)}</div><button class="close" type="button">Close ✕</button></div>
+      <h3 id="sh-name">${esc(y.name)}</h3>
+      <table><tbody>
+        <tr><td>Guests</td><td>${esc(y.guests)}</td></tr>
+        <tr><td>Built</td><td>${esc(y.year||"—")}</td></tr>
+        <tr><td>Charter fee (berth incl.)</td><td>AED ${fmt(y.price)}</td></tr>
+        <tr><td>VAT 5%</td><td>AED ${fmt(vat)}</td></tr>
+        <tr><td>APA 35%</td><td>AED ${fmt(apa)}</td></tr>
+        <tr class="total"><td>Estimated total</td><td>AED ${fmt(y.price+vat+apa)}</td></tr>
+      </tbody></table>
+      <div class="wa-block">
+        <a class="cta wa" href="${esc(waLink(y))}" target="_blank" rel="noopener">${WA_ICON}Enquire on WhatsApp</a>
+        <p class="note">Or message <span class="num">${esc(D.whatsapp)}</span></p>
+      </div>
+      <p class="note">Estimate based on the listed charter fee. VAT shown on the charter fee only; final APA is settled against actual spend.</p>`;
+  }
+}
+$("sh-prev").onclick=()=>{const n=D.yachts[openIdx].photos.length;photoIdx=(photoIdx-1+n)%n;showPhoto()};
+$("sh-next").onclick=()=>{const n=D.yachts[openIdx].photos.length;photoIdx=(photoIdx+1)%n;showPhoto()};
+$("sheet").addEventListener("click",e=>{
+  if(e.target===$("sheet")||e.target.closest(".close"))return closeSheet();
+  const y=D.yachts[openIdx]; if(!y)return;
+  const t=e.target.closest("[data-k]"); if(t){photoIdx=+t.dataset.k;showPhoto();return}
+});
+document.addEventListener("keydown",e=>{
+  if($("sheet").hidden)return;
+  if(e.key==="Escape")closeSheet();
+  if(e.target.matches("input"))return;
+  if(e.key==="ArrowLeft"&&!$("sh-prev").hidden)$("sh-prev").click();
+  if(e.key==="ArrowRight"&&!$("sh-next").hidden)$("sh-next").click();
+});
+let sx=null;
+$("sh-img").addEventListener("touchstart",e=>{sx=e.touches[0].clientX},{passive:true});
+$("sh-img").addEventListener("touchend",e=>{if(sx==null)return;const dx=e.changedTouches[0].clientX-sx;sx=null;if(Math.abs(dx)>40)(dx<0?$("sh-next"):$("sh-prev")).click()});
+
+renderAll();
+</script>
+</body>
+</html>
